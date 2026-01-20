@@ -6,30 +6,28 @@
     <title>Lyrikid Data - MTN Data Bundles</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* MTN COLOR THEME */
+        :root {
+            --mtn-yellow: #FFCC00;
+            --mtn-black: #000000;
+            --mtn-white: #FFFFFF;
+            --mtn-dark: #1A1A1A;
+            --mtn-red: #FF0000;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
-
-        :root {
-            --primary: #6a11cb;
-            --secondary: #2575fc;
-            --accent: #ff5e62;
-            --dark: #1a1a2e;
-            --light: #f8f9fa;
-            --card-bg: #ffffff;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --border-radius: 20px;
-            --transition: all 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
             min-height: 100vh;
             padding: 20px;
-            color: #333;
+            color: white;
         }
 
         .container {
@@ -37,270 +35,309 @@
             margin: 0 auto;
         }
 
-        /* Header */
+        /* HEADER - MTN STYLE */
         .header {
             text-align: center;
             margin-bottom: 40px;
-            padding: 20px;
-            animation: fadeInDown 0.8s ease;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--mtn-black) 0%, #222222 100%);
+            border-radius: 25px;
+            border: 3px solid var(--mtn-yellow);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .header:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--mtn-yellow) 0%, transparent 70%);
+            opacity: 0.1;
+            z-index: 0;
         }
 
         .logo {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         .logo-icon {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+            background: var(--mtn-yellow);
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 28px;
-            font-weight: bold;
-            box-shadow: var(--shadow);
+            color: var(--mtn-black);
+            font-size: 42px;
+            font-weight: 900;
+            box-shadow: 0 10px 20px rgba(255, 204, 0, 0.3);
+            transform: rotate(-5deg);
         }
 
         .logo-text {
-            font-size: 42px;
-            font-weight: 800;
-            background: linear-gradient(to right, #ff8a00, #da1b60);
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(to right, var(--mtn-yellow), #FFDD44);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            letter-spacing: -1px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
         }
 
         .tagline {
-            font-size: 18px;
-            color: white;
-            margin-bottom: 10px;
-            opacity: 0.9;
-        }
-
-        .highlight {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 20px;
-            border-radius: 50px;
-            display: inline-block;
-            margin-top: 10px;
+            font-size: 20px;
+            color: var(--mtn-yellow);
+            margin-bottom: 15px;
             font-weight: 600;
-            color: white;
-            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
         }
 
-        /* Main Content */
+        .discount-badge {
+            display: inline-block;
+            background: var(--mtn-red);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* MAIN CONTENT */
         .main-content {
             background: rgba(255, 255, 255, 0.95);
-            border-radius: var(--border-radius);
-            padding: 30px;
+            border-radius: 25px;
+            padding: 40px 30px;
             box-shadow: var(--shadow);
-            backdrop-filter: blur(10px);
-            margin-bottom: 30px;
-            animation: fadeIn 1s ease;
+            margin-bottom: 40px;
+            border: 2px solid var(--mtn-yellow);
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             position: relative;
         }
 
         .section-title h2 {
-            font-size: 32px;
-            color: var(--dark);
+            font-size: 38px;
+            color: var(--mtn-black);
             display: inline-block;
-            padding-bottom: 10px;
-            position: relative;
-        }
-
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            border-radius: 2px;
+            padding: 0 30px 15px;
+            border-bottom: 4px solid var(--mtn-yellow);
+            margin-bottom: 20px;
         }
 
         .section-title p {
             color: #666;
-            margin-top: 10px;
-            font-size: 16px;
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        /* Grid Layout */
+        /* DATA CARDS - MTN STYLE */
         .data-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
+            gap: 30px;
+            margin-top: 30px;
         }
 
-        /* Data Card */
         .data-card {
-            background: var(--card-bg);
-            border-radius: 18px;
-            padding: 25px;
+            background: var(--mtn-white);
+            border-radius: 20px;
+            padding: 30px 25px;
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 2px solid #f0f0f0;
         }
 
         .data-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            border-color: var(--mtn-yellow);
+        }
+
+        .data-card.popular {
+            border: 3px solid var(--mtn-yellow);
+            background: linear-gradient(135deg, #FFF9E6 0%, white 100%);
         }
 
         .data-card.popular:before {
             content: '🔥 MOST POPULAR';
             position: absolute;
-            top: 15px;
-            right: -30px;
-            background: var(--accent);
-            color: white;
-            padding: 5px 30px;
+            top: 20px;
+            right: -35px;
+            background: var(--mtn-yellow);
+            color: var(--mtn-black);
+            padding: 8px 40px;
             font-size: 12px;
-            font-weight: bold;
+            font-weight: 900;
             transform: rotate(45deg);
             letter-spacing: 1px;
         }
 
-        .data-card.best-value:before {
-            content: '💎 BEST VALUE';
-            position: absolute;
-            top: 15px;
-            right: -30px;
-            background: linear-gradient(to right, #00c9ff, #92fe9d);
-            color: var(--dark);
-            padding: 5px 30px;
-            font-size: 12px;
-            font-weight: bold;
-            transform: rotate(45deg);
-            letter-spacing: 1px;
-        }
-
-        .network-badge {
+        .mtn-badge {
             position: absolute;
             top: 20px;
             left: 20px;
-            background: linear-gradient(135deg, #ff8a00, #da1b60);
-            color: white;
-            padding: 6px 15px;
+            background: var(--mtn-black);
+            color: var(--mtn-yellow);
+            padding: 8px 20px;
             border-radius: 30px;
             font-size: 14px;
-            font-weight: bold;
+            font-weight: 900;
             letter-spacing: 1px;
+            border: 2px solid var(--mtn-yellow);
         }
 
         .data-amount {
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--dark);
+            font-size: 52px;
+            font-weight: 900;
+            color: var(--mtn-black);
             text-align: center;
-            margin: 30px 0 15px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin: 40px 0 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
-        .data-details {
+        /* PRICE SECTION - WITH STRIKETHROUGH */
+        .price-section {
             text-align: center;
-            margin-bottom: 25px;
+            margin: 25px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border: 1px dashed #ddd;
         }
 
-        .data-price {
-            font-size: 28px;
-            font-weight: 700;
-            color: #2d3436;
-            margin-bottom: 8px;
+        .old-price {
+            font-size: 20px;
+            color: #999;
+            text-decoration: line-through;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .new-price {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--mtn-red);
+            margin: 10px 0;
+        }
+
+        .save-badge {
+            display: inline-block;
+            background: var(--mtn-red);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
         }
 
         .data-duration {
-            color: #636e72;
+            color: #666;
             font-size: 16px;
+            text-align: center;
+            margin: 20px 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .data-duration i {
             color: #00b894;
+            font-size: 20px;
         }
 
+        /* BUY BUTTON - MTN STYLE */
         .buy-button {
             display: block;
             width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--mtn-yellow), #FFDD44);
+            color: var(--mtn-black);
             border: none;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 700;
+            border-radius: 15px;
+            font-size: 20px;
+            font-weight: 900;
             cursor: pointer;
-            transition: var(--transition);
             text-align: center;
             text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 20px;
             letter-spacing: 1px;
+            box-shadow: 0 8px 20px rgba(255, 204, 0, 0.3);
         }
 
         .buy-button:hover {
             transform: scale(1.03);
-            box-shadow: 0 10px 20px rgba(106, 17, 203, 0.3);
+            box-shadow: 0 12px 25px rgba(255, 204, 0, 0.5);
+            background: linear-gradient(135deg, #FFDD44, var(--mtn-yellow));
         }
 
         .buy-button i {
-            margin-right: 10px;
+            margin-right: 12px;
+            font-size: 22px;
         }
 
-        /* Footer */
+        /* FOOTER */
         .footer {
             text-align: center;
-            padding: 30px;
-            color: white;
-            margin-top: 40px;
-            animation: fadeIn 1.2s ease;
+            padding: 40px 20px;
+            background: var(--mtn-black);
+            border-radius: 25px;
+            border: 3px solid var(--mtn-yellow);
+            margin-top: 50px;
+            box-shadow: var(--shadow);
         }
 
         .contact-info {
+            padding: 30px;
             background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: var(--border-radius);
-            margin-bottom: 20px;
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-info h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: white;
+            border-radius: 20px;
+            margin-bottom: 30px;
         }
 
         .whatsapp-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
             background: #25D366;
             color: white;
-            padding: 15px 30px;
+            padding: 18px 35px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 15px;
-            transition: var(--transition);
+            font-size: 18px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
         }
 
         .whatsapp-btn:hover {
@@ -310,50 +347,59 @@
 
         .business-hours {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px 30px;
+            background: rgba(255, 204, 0, 0.2);
+            color: var(--mtn-yellow);
+            padding: 18px 35px;
             border-radius: 50px;
-            margin-top: 20px;
-            font-size: 15px;
+            margin: 25px 0;
+            font-size: 16px;
+            font-weight: 600;
+            border: 2px solid var(--mtn-yellow);
         }
 
         .copyright {
             margin-top: 30px;
+            color: #aaa;
             font-size: 14px;
-            opacity: 0.8;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .mtn-powered {
+            color: var(--mtn-yellow);
+            font-weight: bold;
+            margin-top: 10px;
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* AFA NOTICE */
+        .afa-notice {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+            font-weight: bold;
+            font-size: 18px;
+            border: 3px solid #81C784;
+            animation: pulse 3s infinite;
         }
 
-        /* Responsive */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .data-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
             }
             
             .logo-text {
+                font-size: 36px;
+            }
+            
+            .data-amount {
+                font-size: 42px;
+            }
+            
+            .new-price {
                 font-size: 32px;
-            }
-            
-            .section-title h2 {
-                font-size: 26px;
-            }
-            
-            .container {
-                padding: 10px;
-            }
-            
-            .main-content {
-                padding: 20px;
             }
         }
 
@@ -362,68 +408,65 @@
                 grid-template-columns: 1fr;
             }
             
-            .logo-text {
-                font-size: 28px;
+            .logo {
+                flex-direction: column;
+                gap: 10px;
             }
-        }
-
-        /* AFA Notice */
-        .afa-notice {
-            background: linear-gradient(135deg, #00b09b, #96c93d);
-            color: white;
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;
-            margin: 30px 0;
-            font-weight: bold;
-            font-size: 16px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
+            
+            .logo-text {
+                font-size: 32px;
+            }
+            
+            .header, .main-content, .footer {
+                padding: 20px 15px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
+        <!-- HEADER -->
         <header class="header">
             <div class="logo">
                 <div class="logo-icon">L</div>
                 <h1 class="logo-text">LYRIKID DATA</h1>
             </div>
-            <p class="tagline">Instant MTN Data Bundles • No Expiry • Best Prices in Ghana</p>
-            <div class="highlight">
-                <i class="fas fa-bolt"></i> Data Delivered in 30mins-2hrs
+            <p class="tagline">Official MTN Data Partner • No Expiry • Instant Delivery</p>
+            <div class="discount-badge">
+                <i class="fas fa-tags"></i> SPECIAL DISCOUNT PRICES! LIMITED TIME!
             </div>
+            <p style="color: white; font-size: 18px; position: relative; z-index: 1;">
+                <i class="fas fa-bolt" style="color: var(--mtn-yellow);"></i> 
+                Data Delivered in 30 minutes - 2 hours
+            </p>
         </header>
 
-        <!-- AFA Registration Notice -->
+        <!-- AFA NOTICE -->
         <div class="afa-notice">
             <i class="fas fa-check-circle"></i> AFA REGISTRATION AVAILABLE FOR ALL BUNDLES
         </div>
 
-        <!-- Main Content -->
+        <!-- MAIN CONTENT -->
         <main class="main-content">
             <div class="section-title">
                 <h2>MTN DATA PACKAGES</h2>
-                <p>High-speed internet with NO EXPIRY • Instant delivery to your number</p>
+                <p>High-speed internet with NO EXPIRY • Old prices shown crossed out • Pay less today!</p>
             </div>
 
-            <!-- Data Bundles Grid -->
+            <!-- DATA BUNDLES GRID -->
             <div class="data-grid">
+                
                 <!-- 1GB -->
                 <div class="data-card">
-                    <div class="network-badge">MTN</div>
+                    <div class="mtn-badge">MTN</div>
                     <div class="data-amount">1GB</div>
-                    <div class="data-details">
-                        <div class="data-price">₵5.99</div>
-                        <div class="data-duration">
-                            <i class="fas fa-infinity"></i> NO EXPIRY
-                        </div>
+                    <div class="price-section">
+                        <div class="old-price">₵6.99</div>
+                        <div class="new-price">₵5.99</div>
+                        <div class="save-badge">Save ₵1.00</div>
+                    </div>
+                    <div class="data-duration">
+                        <i class="fas fa-infinity"></i> NO EXPIRY DATA
                     </div>
                     <a href="https://paystack.shop/pay/um1brudh19" class="buy-button">
                         <i class="fas fa-shopping-cart"></i> BUY NOW
@@ -432,13 +475,15 @@
 
                 <!-- 2GB -->
                 <div class="data-card">
-                    <div class="network-badge">MTN</div>
+                    <div class="mtn-badge">MTN</div>
                     <div class="data-amount">2GB</div>
-                    <div class="data-details">
-                        <div class="data-price">₵10.99</div>
-                        <div class="data-duration">
-                            <i class="fas fa-infinity"></i> NO EXPIRY
-                        </div>
+                    <div class="price-section">
+                        <div class="old-price">₵12.99</div>
+                        <div class="new-price">₵10.99</div>
+                        <div class="save-badge">Save ₵2.00</div>
+                    </div>
+                    <div class="data-duration">
+                        <i class="fas fa-infinity"></i> NO EXPIRY DATA
                     </div>
                     <a href="https://paystack.shop/pay/0ei2u0ryv4" class="buy-button">
                         <i class="fas fa-shopping-cart"></i> BUY NOW
@@ -447,13 +492,15 @@
 
                 <!-- 3GB -->
                 <div class="data-card">
-                    <div class="network-badge">MTN</div>
+                    <div class="mtn-badge">MTN</div>
                     <div class="data-amount">3GB</div>
-                    <div class="data-details">
-                        <div class="data-price">₵16.99</div>
-                        <div class="data-duration">
-                            <i class="fas fa-infinity"></i> NO EXPIRY
-                        </div>
+                    <div class="price-section">
+                        <div class="old-price">₵17.99</div>
+                        <div class="new-price">₵16.99</div>
+                        <div class="save-badge">Save ₵1.00</div>
+                    </div>
+                    <div class="data-duration">
+                        <i class="fas fa-infinity"></i> NO EXPIRY DATA
                     </div>
                     <a href="https://paystack.shop/pay/sp25nkwx9o" class="buy-button">
                         <i class="fas fa-shopping-cart"></i> BUY NOW
@@ -462,13 +509,15 @@
 
                 <!-- 4GB -->
                 <div class="data-card">
-                    <div class="network-badge">MTN</div>
+                    <div class="mtn-badge">MTN</div>
                     <div class="data-amount">4GB</div>
-                    <div class="data-details">
-                        <div class="data-price">₵22.99</div>
-                        <div class="data-duration">
-                            <i class="fas fa-infinity"></i> NO EXPIRY
-                        </div>
+                    <div class="price-section">
+                        <div class="old-price">₵23.99</div>
+                        <div class="new-price">₵22.99</div>
+                        <div class="save-badge">Save ₵1.00</div>
+                    </div>
+                    <div class="data-duration">
+                        <i class="fas fa-infinity"></i> NO EXPIRY DATA
                     </div>
                     <a href="https://paystack.shop/pay/qwjpmv8m5o" class="buy-button">
                         <i class="fas fa-shopping-cart"></i> BUY NOW
@@ -477,13 +526,15 @@
 
                 <!-- 5GB (POPULAR) -->
                 <div class="data-card popular">
-                    <div class="network-badge">MTN</div>
+                    <div class="mtn-badge">MTN</div>
                     <div class="data-amount">5GB</div>
-                    <div class="data-details">
-                        <div class="data-price">₵26.99</div>
-                        <div class="data-duration">
-                            <i class="fas fa-infinity"></i> NO EXPIRY
-                        </div>
+                    <div class="price-section">
+                        <div class="old-price">₵27.99</div>
+                        <div class="new-price">₵26.99</div>
+                        <div class="save-badge">Save ₵1.00</div>
+                    </div>
+                    <div class="data-duration">
+                        <i class="fas fa-infinity"></i> NO EXPIRY DATA
                     </div>
                     <a href="https://paystack.shop/pay/n53e14lc12" class="buy-button">
                         <i class="fas fa-shopping-cart"></i> BUY NOW
@@ -492,13 +543,15 @@
 
                 <!-- 6GB -->
                 <div class="data-card">
-                    <div class="network-badge">MTN</div>
+                    <div class="mtn-badge">MTN</div>
                     <div class="data-amount">6GB</div>
-                    <div class="data-details">
-                        <div class="data-price">₵32.99</div>
-                        <div class="data-duration">
-                            <i class="fas fa-infinity"></i> NO EXPIRY
-                        </div>
+                    <div class="price-section">
+                        <div class="old-price">₵34.99</div>
+                        <div class="new-price">₵32.99</div>
+                        <div class="save-badge">Save ₵2.00</div>
+                    </div>
+                    <div class="data-duration">
+                        <i class="fas fa-infinity"></i> NO EXPIRY DATA
                     </div>
                     <a href="https://paystack.shop/pay/t1lcstuxsh" class="buy-button">
                         <i class="fas fa-shopping-cart"></i> BUY NOW
@@ -507,13 +560,15 @@
 
                 <!-- 8GB -->
                 <div class="data-card">
-                    <div class="network-badge">MTN</div>
+                    <div class="mtn-badge">MTN</div>
                     <div class="data-amount">8GB</div>
-                    <div class="data-details">
-                        <div class="data-price">₵41.99</div>
-                        <div class="data-duration">
-                            <i class="fas fa-infinity"></i> NO EXPIRY
-                        </div>
+                    <div class="price-section">
+                        <div class="old-price">₵44.99</div>
+                        <div class="new-price">₵41.99</div>
+                        <div class="save-badge">Save ₵3.00</div>
+                    </div>
+                    <div class="data-duration">
+                        <i class="fas fa-infinity"></i> NO EXPIRY DATA
                     </div>
                     <a href="https://paystack.shop/pay/l4ep49f2e4" class="buy-button">
                         <i class="fas fa-shopping-cart"></i> BUY NOW
@@ -521,14 +576,16 @@
                 </div>
 
                 <!-- 10GB (BEST VALUE) -->
-                <div class="data-card best-value">
-                    <div class="network-badge">MTN</div>
+                <div class="data-card popular">
+                    <div class="mtn-badge">MTN</div>
                     <div class="data-amount">10GB</div>
-                    <div class="data-details">
-                        <div class="data-price">₵49.99</div>
-                        <div class="data-duration">
-                            <i class="fas fa-infinity"></i> NO EXPIRY
-                        </div>
+                    <div class="price-section">
+                        <div class="old-price">₵54.99</div>
+                        <div class="new-price">₵49.99</div>
+                        <div class="save-badge">Save ₵5.00</div>
+                    </div>
+                    <div class="data-duration">
+                        <i class="fas fa-infinity"></i> NO EXPIRY DATA
                     </div>
                     <a href="https://paystack.shop/pay/l2pkko4qvg" class="buy-button">
                         <i class="fas fa-shopping-cart"></i> BUY NOW
@@ -537,13 +594,15 @@
 
                 <!-- 15GB -->
                 <div class="data-card">
-                    <div class="network-badge">MTN</div>
+                    <div class="mtn-badge">MTN</div>
                     <div class="data-amount">15GB</div>
-                    <div class="data-details">
-                        <div class="data-price">₵72.99</div>
-                        <div class="data-duration">
-                            <i class="fas fa-infinity"></i> NO EXPIRY
-                        </div>
+                    <div class="price-section">
+                        <div class="old-price">₵74.99</div>
+                        <div class="new-price">₵72.99</div>
+                        <div class="save-badge">Save ₵2.00</div>
+                    </div>
+                    <div class="data-duration">
+                        <i class="fas fa-infinity"></i> NO EXPIRY DATA
                     </div>
                     <a href="https://paystack.shop/pay/aqxtsknia4" class="buy-button">
                         <i class="fas fa-shopping-cart"></i> BUY NOW
@@ -552,13 +611,15 @@
 
                 <!-- 20GB -->
                 <div class="data-card">
-                    <div class="network-badge">MTN</div>
+                    <div class="mtn-badge">MTN</div>
                     <div class="data-amount">20GB</div>
-                    <div class="data-details">
-                        <div class="data-price">₵94.99</div>
-                        <div class="data-duration">
-                            <i class="fas fa-infinity"></i> NO EXPIRY
-                        </div>
+                    <div class="price-section">
+                        <div class="old-price">₵99.99</div>
+                        <div class="new-price">₵94.99</div>
+                        <div class="save-badge">Save ₵5.00</div>
+                    </div>
+                    <div class="data-duration">
+                        <i class="fas fa-infinity"></i> NO EXPIRY DATA
                     </div>
                     <a href="https://paystack.shop/pay/hv498b1one" class="buy-button">
                         <i class="fas fa-shopping-cart"></i> BUY NOW
@@ -567,13 +628,15 @@
 
                 <!-- 30GB -->
                 <div class="data-card">
-                    <div class="network-badge">MTN</div>
+                    <div class="mtn-badge">MTN</div>
                     <div class="data-amount">30GB</div>
-                    <div class="data-details">
-                        <div class="data-price">₵139.99</div>
-                        <div class="data-duration">
-                            <i class="fas fa-infinity"></i> NO EXPIRY
-                        </div>
+                    <div class="price-section">
+                        <div class="old-price">₵144.99</div>
+                        <div class="new-price">₵139.99</div>
+                        <div class="save-badge">Save ₵5.00</div>
+                    </div>
+                    <div class="data-duration">
+                        <i class="fas fa-infinity"></i> NO EXPIRY DATA
                     </div>
                     <a href="https://paystack.shop/pay/3my3lgnn7q" class="buy-button">
                         <i class="fas fa-shopping-cart"></i> BUY NOW
@@ -582,13 +645,15 @@
 
                 <!-- 50GB -->
                 <div class="data-card">
-                    <div class="network-badge">MTN</div>
+                    <div class="mtn-badge">MTN</div>
                     <div class="data-amount">50GB</div>
-                    <div class="data-details">
-                        <div class="data-price">₵219.99</div>
-                        <div class="data-duration">
-                            <i class="fas fa-infinity"></i> NO EXPIRY
-                        </div>
+                    <div class="price-section">
+                        <div class="old-price">₵224.99</div>
+                        <div class="new-price">₵219.99</div>
+                        <div class="save-badge">Save ₵5.00</div>
+                    </div>
+                    <div class="data-duration">
+                        <i class="fas fa-infinity"></i> NO EXPIRY DATA
                     </div>
                     <a href="https://paystack.shop/pay/44ogeeo2h1" class="buy-button">
                         <i class="fas fa-shopping-cart"></i> BUY NOW
@@ -597,30 +662,37 @@
 
                 <!-- 100GB -->
                 <div class="data-card">
-                    <div class="network-badge">MTN</div>
+                    <div class="mtn-badge">MTN</div>
                     <div class="data-amount">100GB</div>
-                    <div class="data-details">
-                        <div class="data-price">₵419.99</div>
-                        <div class="data-duration">
-                            <i class="fas fa-infinity"></i> NO EXPIRY
-                        </div>
+                    <div class="price-section">
+                        <div class="old-price">₵429.99</div>
+                        <div class="new-price">₵419.99</div>
+                        <div class="save-badge">Save ₵10.00</div>
+                    </div>
+                    <div class="data-duration">
+                        <i class="fas fa-infinity"></i> NO EXPIRY DATA
                     </div>
                     <a href="https://paystack.shop/pay/n0bw06mjgr" class="buy-button">
                         <i class="fas fa-shopping-cart"></i> BUY NOW
                     </a>
                 </div>
+
             </div>
         </main>
 
-        <!-- Footer -->
+        <!-- FOOTER -->
         <footer class="footer">
             <div class="contact-info">
-                <h3><i class="fas fa-headset"></i> NEED HELP? CONTACT US</h3>
-                <p style="font-size: 20px; margin: 15px 0; font-weight: bold;">
-                    <i class="fas fa-phone"></i> 0554279125
+                <h3 style="font-size: 28px; margin-bottom: 25px; color: var(--mtn-yellow);">
+                    <i class="fas fa-headset"></i> NEED HELP? CONTACT US
+                </h3>
+                
+                <p style="font-size: 26px; margin: 20px 0; font-weight: bold; color: white;">
+                    <i class="fas fa-phone" style="color: var(--mtn-yellow);"></i> 0554279125
                 </p>
+                
                 <a href="https://wa.me/233554279125" class="whatsapp-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> CHAT ON WHATSAPP
+                    <i class="fab fa-whatsapp"></i> CLICK TO CHAT ON WHATSAPP
                 </a>
                 
                 <div class="business-hours">
@@ -632,7 +704,11 @@
 
             <div class="copyright">
                 <p>© 2024 Lyrikid Data. All rights reserved.</p>
-                <p style="margin-top: 10px; font-size: 13px;">
+                <p class="mtn-powered">
+                    <i class="fas fa-bolt" style="color: var(--mtn-yellow);"></i> 
+                    Premium MTN Data Services
+                </p>
+                <p style="margin-top: 15px; font-size: 14px; color: #aaa;">
                     <i class="fas fa-shield-alt"></i> Secure payments powered by Paystack
                 </p>
             </div>
@@ -640,28 +716,23 @@
     </div>
 
     <script>
-        // Add smooth hover effects
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.data-card');
-            
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.zIndex = '10';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.zIndex = '1';
-                });
+        // Button animation
+        document.querySelectorAll('.buy-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> REDIRECTING TO PAYSTACK...';
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-shopping-cart"></i> BUY NOW';
+                }, 3000);
             });
+        });
 
-            // Add click animation to buttons
-            const buttons = document.querySelectorAll('.buy-button');
-            buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    // Optional: Add loading animation
-                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> REDIRECTING...';
-                    // Link will proceed normally
-                });
+        // Add hover effect to cards
+        document.querySelectorAll('.data-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '100';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
             });
         });
     </script>
